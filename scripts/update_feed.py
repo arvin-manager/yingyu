@@ -12,6 +12,14 @@ CHANNELS = {'com.kankan.kankan': 'android-mobile', 'com.kankan.kankan.tv': 'andr
 REPO_URL = 'https://github.com/arvin-manager/yingyu'
 
 
+def certificate_fingerprints(output):
+    # Newer Android build-tools annotate the SDK range before the signer number.
+    # Accept either output layout while still comparing every full fingerprint.
+    return {value.lower() for value in re.findall(
+        r'^Signer\b[^\r\n]*?certificate SHA-256 digest:\s*([a-fA-F0-9]{64})\s*$',
+        output, re.M)}
+
+
 def inspect_apk(path, aapt, apksigner, trusted):
     output = subprocess.check_output([aapt, 'dump', 'badging', str(path)], text=True)
     match = re.search(r"^package: name='([^']+)' versionCode='(\d+)' versionName='([^']+)'", output, re.M)
@@ -21,10 +29,10 @@ def inspect_apk(path, aapt, apksigner, trusted):
     if package not in CHANNELS or not 0 < int(build) <= 2147483647:
         raise ValueError(f'Unsupported package or versionCode: {package}/{build}')
     certificates = subprocess.check_output([apksigner, 'verify', '--print-certs', str(path)], text=True)
-    signers = set(re.findall(r'Signer #\d+ certificate SHA-256 digest: ([a-fA-F0-9]{64})', certificates))
-    expected = set(trusted.get(package, []))
+    signers = certificate_fingerprints(certificates)
+    expected = {value.lower() for value in trusted.get(package, [])}
     if not signers or signers != expected:
-        raise ValueError(f'APK signing certificate does not match installed versions: {package}')
+        raise ValueError(f'APK signing certificate does not match installed versions: {package}; detected={sorted(signers)}')
     with ZipFile(path) as apk:
         names = set(apk.namelist())
         for abi in ['armeabi-v7a', 'arm64-v8a', 'x86_64']:

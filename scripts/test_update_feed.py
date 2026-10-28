@@ -3,7 +3,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
-from update_feed import generate_feed, inspect_apk, REPO_URL
+from update_feed import generate_feed, inspect_apk, REPO_URL, certificate_fingerprints
 
 
 class FeedTests(unittest.TestCase):
@@ -76,6 +76,12 @@ class FeedTests(unittest.TestCase):
         with patch('update_feed.subprocess.check_output', side_effect=[metadata, signature]):
             with self.assertRaisesRegex(ValueError, 'signing certificate'):
                 inspect_apk(self.path / 'yingyu-tv.apk', 'aapt', 'apksigner', {'com.kankan.kankan.tv': ['a' * 64]})
+
+    def test_certificate_output_supports_new_sdk_range_annotations(self):
+        for prefix in ['Signer #1', 'Signer (minSdkVersion=24, maxSdkVersion=2147483647) #1']:
+            with self.subTest(prefix=prefix):
+                self.assertEqual(certificate_fingerprints(prefix + ' certificate SHA-256 digest: ' + 'AB' * 32), {'ab' * 32})
+        self.assertEqual(certificate_fingerprints('Source Stamp Signer certificate SHA-256 digest: ' + 'a' * 64), set())
 
     def test_unknown_package_rejected(self):
         with patch('update_feed.subprocess.check_output', return_value="package: name='other.app' versionCode='1' versionName='1.0'"):
