@@ -42,7 +42,10 @@ jobs:
       - name: Inspect signed APKs and generate channel updates
         run: |
           set -euo pipefail
-          tools_dir="$(find "$ANDROID_HOME/build-tools" -mindepth 1 -maxdepth 1 -type d | sort -V | tail -n1)"
+          tools_dir="$ANDROID_HOME/build-tools/36.0.0"
+          if [[ ! -x "$tools_dir/aapt" || ! -x "$tools_dir/apksigner" ]]; then
+            sdkmanager 'build-tools;36.0.0'
+          fi
           python3 scripts/update_feed.py --release .release.json --assets .release-assets --aapt "$tools_dir/aapt" --apksigner "$tools_dir/apksigner"
       - name: Commit updated feed
         run: |

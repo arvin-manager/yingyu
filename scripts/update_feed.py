@@ -30,6 +30,8 @@ def inspect_apk(path, aapt, apksigner, trusted):
         raise ValueError(f'Unsupported package or versionCode: {package}/{build}')
     certificates = subprocess.check_output([apksigner, 'verify', '--print-certs', str(path)], text=True)
     signers = certificate_fingerprints(certificates)
+    if not signers:
+        raise ValueError(f'No certificate fingerprints could be parsed from apksigner: {certificates!r}')
     expected = {value.lower() for value in trusted.get(package, [])}
     if not signers or signers != expected:
         raise ValueError(f'APK signing certificate does not match installed versions: {package}; detected={sorted(signers)}')
