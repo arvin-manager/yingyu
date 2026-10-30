@@ -2,14 +2,14 @@
   "schemaVersion": 1,
   "channels": {
     "android-tv": {
-      "version": "1.1.10",
-      "build": 5012,
+      "version": "1.1.11",
+      "build": 5013,
       "packageName": "com.kankan.kankan.tv",
-      "size": 68955393,
-      "sha256": "9bc65f5b0bc1761bcd37874e8cd1fddf64906ec8d60dbb1ebd0c54c844d2a255",
-      "notes": "适用于 Android TV / 电视盒子的通用安装包，版本 1.1.10（构建号 5012）。\r\n\r\n更新内容：\r\n- 新增 GitHub 应用内更新：启动检查、设置中手动检查、下载进度、取消下载和系统安装确认。\r\n- 下载后校验文件大小与 SHA-256，并核对包名、版本和签名。\r\n- 修复播放失败时焦点位置，默认选中“切换线路”，关闭线路弹窗后恢复焦点。\r\n- 优化连续快进快退、进度条焦点和长按返回操作。\r\n- 选集默认定位到上次观看集数所在的分组。\r\n\r\n安装说明：\r\n- 首次接入更新功能，旧版用户需要手动下载并覆盖安装本版；之后可在设置中检查更新。\r\n- 保持原有 TV 包名和签名，覆盖安装保留设备内的数据。\r\n- 支持 ARMv7、ARM64、x86_64，最低 Android 7.0。\r\n\r\n已完成 release 编译及安装包结构、签名检查；未进行 Android 设备安装运行验证。",
-      "downloadUrl": "https://github.com/arvin-manager/yingyu/releases/download/v1.1.10-tv/yingyu-tv-1.1.10-universal.apk",
-      "pageUrl": "https://github.com/arvin-manager/yingyu/releases/tag/v1.1.10-tv"
+      "size": 69021013,
+      "sha256": "26809a149d85ce2eafb4384b71ba92256a13d57bc18ee5370294a5f742be8be5",
+      "notes": "版本 1.1.11（构建号 5013），适用于 Android TV / 电视盒子。\r\n\r\n更新内容：\r\n- 新增遥控器字母数字键盘，支持输入首字母搜索影片，例如 QYN 搜索庆余年。\r\n- 字母输入停顿后自动搜索，支持删除、清空与分页。\r\n- 输入框末尾按右键或按下键可直接到达页面搜索按钮，无需返回系统键盘确认。\r\n- 播放首次就绪、关闭面板以及重新唤出控制栏时，默认聚焦进度条并显示高亮。\r\n- 控制栏隐藏时也可按左右键快退、快进，再次显示时恢复进度条焦点。\r\n- 保留播放失败时默认聚焦切换线路的操作。\r\n\r\n更新方式：\r\n- TV 1.1.10 用户可在设置 → 应用更新中检查并下载安装。\r\n- 1.1.9 及更早版本尚无应用内更新，需要手动下载覆盖安装一次。\r\n- 包名、签名与上一版一致；通用 APK 支持 ARMv7、ARM64、x86_64，最低 Android 7.0。\r\n\r\n17 项相关测试及静态分析通过。完成 release 编译和包结构/签名校验，未进行 Android 设备安装运行验证。",
+      "downloadUrl": "https://github.com/arvin-manager/yingyu/releases/download/v1.1.11-tv/yingyu-tv-1.1.11-universal.apk",
+      "pageUrl": "https://github.com/arvin-manager/yingyu/releases/tag/v1.1.11-tv"
     }
   }
 }
