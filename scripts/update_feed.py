@@ -10,6 +10,7 @@ from zipfile import ZipFile
 
 CHANNELS = {'com.kankan.kankan': 'android-mobile', 'com.kankan.kankan.tv': 'android-tv'}
 REPO_URL = 'https://github.com/arvin-manager/yingyu'
+DOWNLOAD_PROXY = 'https://gh-proxy.com/'
 
 
 def certificate_fingerprints(output):
@@ -85,8 +86,10 @@ def generate_feed(feed, release, directory, aapt, apksigner, trusted):
             if entry['build'] == previous['build']:
                 if entry['sha256'] != previous.get('sha256'):
                     raise ValueError(f'Increase versionCode before replacing {channel}')
-                continue  # Idempotent: keep the original version-pinned download URL.
-        entry.update(notes=release.get('body') or '', downloadUrl=expected_url, pageUrl=page)
+                # Same APK may migrate transport without replacing its bytes.
+                previous['downloadUrl'] = DOWNLOAD_PROXY + expected_url
+                continue
+        entry.update(notes=release.get('body') or '', downloadUrl=DOWNLOAD_PROXY + expected_url, pageUrl=page)
         result['channels'][channel] = entry
     if not seen:
         raise ValueError('Upload at least one universal Android APK before publishing the release')

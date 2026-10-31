@@ -3,7 +3,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
-from update_feed import generate_feed, inspect_apk, REPO_URL, certificate_fingerprints
+from update_feed import generate_feed, inspect_apk, REPO_URL, DOWNLOAD_PROXY, certificate_fingerprints
 
 
 class FeedTests(unittest.TestCase):
@@ -27,7 +27,7 @@ class FeedTests(unittest.TestCase):
         result = self.generate()
         self.assertEqual(result['channels']['android-mobile'], self.feed['channels']['android-mobile'])
         self.assertEqual(result['channels']['android-tv']['build'], 5012)
-        self.assertEqual(result['channels']['android-tv']['downloadUrl'], self.release['assets'][0]['browser_download_url'])
+        self.assertEqual(result['channels']['android-tv']['downloadUrl'], DOWNLOAD_PROXY + self.release['assets'][0]['browser_download_url'])
         self.assertNotIn('android-tv', self.feed['channels'])
 
     def test_pre_release_and_draft_rejected(self):
@@ -44,6 +44,15 @@ class FeedTests(unittest.TestCase):
         result['channels']['android-tv']['sha256'] = 'c' * 64
         with self.assertRaisesRegex(ValueError, 'Increase versionCode'):
             self.generate(result)
+
+    def test_same_apk_migrates_legacy_url_to_proxy_without_changing_identity(self):
+        current = self.generate()
+        current['channels']['android-tv']['downloadUrl'] = self.release['assets'][0]['browser_download_url']
+        result = self.generate(current)
+        expected = copy.deepcopy(current)
+        expected['channels']['android-tv']['downloadUrl'] = DOWNLOAD_PROXY + self.release['assets'][0]['browser_download_url']
+        self.assertEqual(result, expected)
+        self.assertEqual(self.generate(result), result)
 
     def test_downgrade_rejected(self):
         result = self.generate()

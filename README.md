@@ -28,7 +28,7 @@ APK 通过 Release 的附件上传，不能提交到 Git 源码目录。无需�
 | `android-mobile` | `com.kankan.kankan` | Android 手机版本 |
 | `ios-mobile` | 暂未配置 | iOS 需要有效 Apple 签名及对应安装页 |
 
-发布 TV 不会改变手机频道，反之亦然。下载地址固定到具体 Release，后续发布另一频道也不会下载到错误安装包。App 下载后检查 SHA-256，再由 Android 检查包名、版本及证书，最后由用户在系统安装器确认安装。不会静默安装。
+发布 TV 不会改变手机频道，反之亦然。下载地址使用用户确认可用的 `https://gh-proxy.com/` 代理并固定到具体 Release，例如 `https://gh-proxy.com/https://github.com/arvin-manager/yingyu/releases/download/v1.1.13-tv/yingyu-tv-1.1.13-universal.apk`；后续发布另一频道也不会下载到错误安装包。版本检查仍使用 GitHub API，发布脚本校验官方附件身份后生成代理下载链接。App 下载后检查 SHA-256，再由 Android 检查包名、版本及证书，最后由用户在系统安装器确认安装。不会静默安装。
 
 `signing-certificates.json` 只保存已分发 APK 的**公开证书指纹**，不含私钥或 keystore。自动化拒绝签名不一致的包，防止发布后无法覆盖安装。若以后改用正式证书，应先安排已有安装版本的迁移，不能只修改这里的指纹。
 
