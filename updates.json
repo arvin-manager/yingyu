@@ -2,14 +2,14 @@
   "schemaVersion": 1,
   "channels": {
     "android-tv": {
-      "version": "1.1.12",
-      "build": 5014,
+      "version": "1.1.13",
+      "build": 5015,
       "packageName": "com.kankan.kankan.tv",
-      "size": 69037397,
-      "sha256": "3e3064f8a07808d3549eb8cded1e3923725957703a7ff408377e94dc1a58d983",
-      "notes": "TV 版本 1.1.12（构建号 5014）。\r\n\r\n- 使用 GitHub API 作为主更新地址；失败后尝试 CDN 和 GitHub Raw。\r\n- 兼容 GitHub Base64 版本文件，改进网络、证书与限流错误提示。\r\n- 包含 1.1.11 的首字母搜索、字母键盘、搜索按钮导航及进度条默认焦点优化。\r\n\r\n通用 APK：ARMv7、ARM64、x86_64；最低 Android 7.0，包名及签名沿用已有 TV 版本。\r\n旧版若无法访问更新地址，请手动覆盖安装本版。14 项更新测试、静态分析、release 编译及签名/架构检查已通过，未进行 Android 设备安装运行验证。\r\n\r\n此附件为 2026-10-30 已构建的安装包，不包含 2026-10-31 后续源码复查修改。",
-      "downloadUrl": "https://github.com/arvin-manager/yingyu/releases/download/v1.1.12-tv/yingyu-tv-1.1.12-universal.apk",
-      "pageUrl": "https://github.com/arvin-manager/yingyu/releases/tag/v1.1.12-tv"
+      "size": 69053697,
+      "sha256": "4cd71a30eb8d26edf4947264826c0072fb30c7b7a4416eb5dcbe21324e8bb505",
+      "notes": "TV 版本 1.1.13（构建号 5015）。\r\n\r\n- 搜索页改为左右布局：左侧常驻搜索框与英文/数字键盘，右侧显示搜索结果。默认聚焦字母键，输入首字母后自动搜索，方向键可跨区操作。\r\n- 搜索刷新和失败不抢输入焦点；修复移动光标重复搜索、新关键词分页及异步结果覆盖问题。\r\n- 详情海报采用固定比例完整显示，不再撑满整列高度。\r\n- 优化播放进度条焦点导航，长按播放键只切换一次播放/暂停。\r\n- 修复应用更新取消、重复安装及弹窗焦点恢复问题。\r\n- 保留 GitHub API 主更新地址和备用地址回退。\r\n\r\n通用 TV APK：ARMv7、ARM64、x86_64；最低 Android 7.0，沿用已有包名与签名，可覆盖安装。78 项 Flutter 测试、修改文件静态检查通过；未进行 Android 设备安装运行验证。\r\n\r\n旧版若无法访问更新地址，请手动下载本版覆盖安装。",
+      "downloadUrl": "https://github.com/arvin-manager/yingyu/releases/download/v1.1.13-tv/yingyu-tv-1.1.13-universal.apk",
+      "pageUrl": "https://github.com/arvin-manager/yingyu/releases/tag/v1.1.13-tv"
     }
   }
 }
