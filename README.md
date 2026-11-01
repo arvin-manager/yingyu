@@ -41,3 +41,11 @@ python3 -m unittest discover -s scripts -p 'test_*.py'
 ```
 
 该仓库只存放分发配置、说明及自动化。Flutter 工程仍在本地维护。
+
+## 蒲公英应用内下载（1.1.14 起）
+
+支持公开页面解析的新客户端优先读取 `pgyerChannels`；老客户端仍读取 `channels`，不向它们提供 HTML 下载页。检查版本仍来自 GitHub API，实际 APK 由 App 自行解析蒲公英公开固定 build 页取得，不依赖账号 API Key、登录、Cookie 或 Cloudflare。首次安装 1.1.14 需要从蒲公英手动覆盖安装。
+
+后续提高 Android versionCode、将通用签名 APK 上传到蒲公英。发布前，用 Flutter 工程的 `tool/pgyer_public_download_probe.dart` 从该版本的公开 build 页完整下载，确认与本地 APK 的 SHA-256 相同，再运行 `scripts/publish_pgyer.py`。该工具重新验证本地签名、包名和架构，固定蒲公英 build 页，不将可能过期的 OSS 签名链接写入清单，保留旧频道。
+
+网页结构未被官方承诺稳定；正常 token 校验失败、额外授权或页面变化时应停止，不绕过验证码或权限。实际电视网络、安装权限与解码仍需设备测试。
