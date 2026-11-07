@@ -14,14 +14,14 @@
   },
   "pgyerChannels": {
     "android-tv": {
-      "version": "1.1.20",
-      "build": 5022,
+      "version": "1.1.22",
+      "build": 5024,
       "packageName": "com.kankan.kankan.tv",
-      "size": 71513274,
-      "sha256": "a8353b676672fc141308308448e7b75bde0ed372123b90008362f350b23d0e0a",
-      "downloadUrl": "https://www.pgyer.com/app/build/4053185132c424aa06393dd33033813b",
-      "pageUrl": "https://www.pgyer.com/app/build/4053185132c424aa06393dd33033813b",
-      "notes": "TV 1.1.20（5022）\n\n- 青花瓷片源支持登录授权、清晰度选择，默认选择账号可用的最高清晰度。\n- 播放和重试前重新获取详情与播放地址，减少旧地址失效导致的播放失败。\n- 优化观看记录的集数匹配，避免片源更新集数后套用错误进度。\n- 修复详情页切换影片时旧请求覆盖当前状态的问题，改善片源切换与缓存刷新。\n\n通用 TV APK：ARMv7、ARM64、x86_64，沿用原包名与签名，可覆盖安装。版本检查使用 GitHub，安装包通过蒲公英在 App 内下载。\n"
+      "size": 88511481,
+      "sha256": "c2c6681a7b686ed0a4143e3789a502e7c4d0f7c410dff24829f4a914907a7959",
+      "downloadUrl": "https://www.pgyer.com/app/build/659ffa919abeb1c0980d70317c619359",
+      "pageUrl": "https://www.pgyer.com/app/build/659ffa919abeb1c0980d70317c619359",
+      "notes": "TV 1.1.22（5024）\n\n- 新增浅色、深色与跟随系统主题，设置中即时切换并保存。\n- 青花瓷授权页支持遥控器导航、确认与输入。\n- 新增手机扫码为电视授权；手机已登录时可直接回传授权，需安装新版映屿并连接同一局域网。\n- 优化更新包下载与安装交接，保留完整性校验，由系统安装器判断兼容性。\n\n通用 TV APK：ARMv7、ARM64、x86_64，沿用原包名与签名。版本检查使用 GitHub，安装包通过蒲公英在 App 内下载。\n"
     }
   }
 }
