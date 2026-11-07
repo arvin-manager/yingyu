@@ -1,10 +1,16 @@
 # 映屿 · 更新与安装包
 
-映屿 Android 手机 / Android TV 的公开更新分发仓库。使用 GitHub Releases 存放安装包，使用静态版本文件提供 App 内更新检查，无需服务器或蒲公英 API Key。
+映屿 Android 手机 / Android TV 的公开更新分发仓库。GitHub 静态版本文件提供 App 内更新检查；当前 TV 安装包通过蒲公英公开页面解析后在 App 内下载，无需自建服务器或蒲公英 API Key。历史 GitHub Release 附件继续保留。
 
 - [下载已发布的版本](https://github.com/arvin-manager/yingyu/releases)
 - [App 使用的更新文件](https://raw.githubusercontent.com/arvin-manager/yingyu/main/updates.json)
 - TV 的蒲公英分发页：https://www.pgyer.com/yingyutv
+
+## 当前 TV 版本：1.1.24（5026）
+
+[固定版本下载页](https://www.pgyer.com/app/build/c786e942421667a53d556b2ed0a2516f)。兼容 TCL tcl_m7642 / Android 9 的内置多屏互动安装流程，保留安装包长度与 SHA-256 校验，电视确认“同意”后安装。其他设备继续使用系统安装器。此版本与 1.1.23 功能相同，提高构建号以便测试应用内更新。
+
+该 TCL 固件禁止普通 `adb install`。已有旧版本若无法调用安装器，首次可通过欢视助手、U 盘或 ADB 辅助电视多屏互动覆盖安装含修复的版本；后续更新由 App 在电视本机交接，不依赖电脑。本版本不修改固件安装开关或全局权限。
 
 初始化时更新文件的频道为空，表示暂未在 GitHub 发布安装包，不会给 App 推送虚构更新。当前旧安装包没有自动更新功能，**首次接入版需要手动安装一次**。
 

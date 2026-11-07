@@ -14,14 +14,14 @@
   },
   "pgyerChannels": {
     "android-tv": {
-      "version": "1.1.22",
-      "build": 5024,
+      "version": "1.1.24",
+      "build": 5026,
       "packageName": "com.kankan.kankan.tv",
-      "size": 88511481,
-      "sha256": "c2c6681a7b686ed0a4143e3789a502e7c4d0f7c410dff24829f4a914907a7959",
-      "downloadUrl": "https://www.pgyer.com/app/build/659ffa919abeb1c0980d70317c619359",
-      "pageUrl": "https://www.pgyer.com/app/build/659ffa919abeb1c0980d70317c619359",
-      "notes": "TV 1.1.22（5024）\n\n- 新增浅色、深色与跟随系统主题，设置中即时切换并保存。\n- 青花瓷授权页支持遥控器导航、确认与输入。\n- 新增手机扫码为电视授权；手机已登录时可直接回传授权，需安装新版映屿并连接同一局域网。\n- 优化更新包下载与安装交接，保留完整性校验，由系统安装器判断兼容性。\n\n通用 TV APK：ARMv7、ARM64、x86_64，沿用原包名与签名。版本检查使用 GitHub，安装包通过蒲公英在 App 内下载。\n"
+      "size": 88544313,
+      "sha256": "764fffc9308aa0469cf303fb6829fde9e65cf4a945992583858cf65b22f9ebd0",
+      "downloadUrl": "https://www.pgyer.com/app/build/c786e942421667a53d556b2ed0a2516f",
+      "pageUrl": "https://www.pgyer.com/app/build/c786e942421667a53d556b2ed0a2516f",
+      "notes": "TV 1.1.24（5026）\n\n- 修复部分 TCL Android 9 电视更新安装失败：兼容内置多屏互动，下载后按电视提示选择“同意”安装。\n- 完整性校验继续保留；兼容机型在本机交接安装包，无需电脑，不上传到其他服务。\n- 优化授权设置缺失、安装服务不可用、拒绝与超时的提示，失败后可继续安装，无需重复下载。\n\n本次与 1.1.23 功能相同，仅提高版本号供应用内覆盖更新测试。通用 TV APK：ARMv7、ARM64、x86_64，沿用原包名与签名。GitHub 检查版本，蒲公英 App 内下载。\n"
     }
   }
 }
