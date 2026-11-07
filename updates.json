@@ -14,14 +14,14 @@
   },
   "pgyerChannels": {
     "android-tv": {
-      "version": "1.1.14",
-      "build": 5016,
+      "version": "1.1.20",
+      "build": 5022,
       "packageName": "com.kankan.kankan.tv",
-      "size": 69053697,
-      "sha256": "1af4e4745378d1318e2633582d34fe47c0cb8df8483134d0f267f22f66d59089",
-      "downloadUrl": "https://www.pgyer.com/app/build/ee66055e72536149c90d3d0d1cdd92f6",
-      "pageUrl": "https://www.pgyer.com/app/build/ee66055e72536149c90d3d0d1cdd92f6",
-      "notes": "TV 1.1.14（5016）· 蒲公英应用内更新测试版\n\n- 版本检查继续使用 GitHub API，安装包通过蒲公英公开页面在程序内解析下载，无需打开浏览器、登录、账号 API Key 或 Cloudflare。\n- 下载进度固定显示在更新弹窗中，更新说明单独滚动；显示正在解析、连接、下载、校验及安装状态，支持取消和重试。\n- 保留文件大小、SHA-256 与 Android 包名/签名校验；网页变化或需额外授权时明确停止。\n- 包含此前常驻字母键盘、左右搜索布局、详情海报、播放器焦点等优化。\n\n通用 TV APK：ARMv7、ARM64、x86_64，Android 7.0+；沿用原包名与签名。93 项 Flutter 测试通过，公开页面由生产 Dart 解析器完成真实 APK 下载验证。未进行 Android 电视设备安装运行验证。\n\n首次使用需手动覆盖安装本版；旧版不具备蒲公英网页解析功能。之后新版通过 GitHub 的独立蒲公英频道检查更新。\n"
+      "size": 71513274,
+      "sha256": "a8353b676672fc141308308448e7b75bde0ed372123b90008362f350b23d0e0a",
+      "downloadUrl": "https://www.pgyer.com/app/build/4053185132c424aa06393dd33033813b",
+      "pageUrl": "https://www.pgyer.com/app/build/4053185132c424aa06393dd33033813b",
+      "notes": "TV 1.1.20（5022）\n\n- 青花瓷片源支持登录授权、清晰度选择，默认选择账号可用的最高清晰度。\n- 播放和重试前重新获取详情与播放地址，减少旧地址失效导致的播放失败。\n- 优化观看记录的集数匹配，避免片源更新集数后套用错误进度。\n- 修复详情页切换影片时旧请求覆盖当前状态的问题，改善片源切换与缓存刷新。\n\n通用 TV APK：ARMv7、ARM64、x86_64，沿用原包名与签名，可覆盖安装。版本检查使用 GitHub，安装包通过蒲公英在 App 内下载。\n"
     }
   }
 }
