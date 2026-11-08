@@ -15,3 +15,9 @@
 - `pgyerChannels` 保存支持页面解析的新客户端清单；旧 `channels` 保留原可用版本，不把 HTML 页面链接下发给不会解析的旧客户端。首次过渡包需手动安装，不能宣称旧二进制自动获得新解析器。
 - 发布前必须从蒲公英公开页面用生产 Dart 解析器重新下载 APK，SHA-256 与本地签名包一致后，使用 scripts/publish_pgyer.py 发布固定 build 页面，不固化 OSS 临时签名地址。
 - scripts/update_feed.py 仍用于旧 GitHub 附件，沿用原 gh-proxy 规则；不要混淆两种分发方式。
+
+# 三平台更新通道（2026-11-08）
+
+- 手机 Android、TV、iOS 分别发布到 `pgyerChannels.android-mobile`、`android-tv`、`ios-mobile`，不能因 Android 手机与 iOS 共用 Bundle ID 字符串而复用条目。
+- Android 使用公开页面解析与 App 内进度/安装器；iOS 打开平台独立的固定安装页，Ad Hoc 包仅支持描述文件内已登记设备。
+- iOS 发布前核对 IPA 实际签名、个人团队、Bundle ID、构建号及设备配置，清单只包含公开版本元数据，不上传 UDID 名单。

@@ -1,57 +1,50 @@
 # 映屿 · 更新与安装包
 
-映屿 Android 手机 / Android TV 的公开更新分发仓库。GitHub 静态版本文件提供 App 内更新检查；当前 TV 安装包通过蒲公英公开页面解析后在 App 内下载，无需自建服务器或蒲公英 API Key。历史 GitHub Release 附件继续保留。
+版本检查使用公开 GitHub 清单；Android 手机、Android TV 和 iOS 分别从自己的蒲公英应用安装更新，无需自建服务器或蒲公英 API Key。
 
-- [下载已发布的版本](https://github.com/arvin-manager/yingyu/releases)
-- [App 使用的更新文件](https://raw.githubusercontent.com/arvin-manager/yingyu/main/updates.json)
-- TV 的蒲公英分发页：https://www.pgyer.com/yingyutv
+## 当前版本：1.1.25（5027）
 
-## 当前 TV 版本：1.1.24（5026）
-
-[固定版本下载页](https://www.pgyer.com/app/build/c786e942421667a53d556b2ed0a2516f)。兼容 TCL tcl_m7642 / Android 9 的内置多屏互动安装流程，保留安装包长度与 SHA-256 校验，电视确认“同意”后安装。其他设备继续使用系统安装器。此版本与 1.1.23 功能相同，提高构建号以便测试应用内更新。
-
-该 TCL 固件禁止普通 `adb install`。已有旧版本若无法调用安装器，首次可通过欢视助手、U 盘或 ADB 辅助电视多屏互动覆盖安装含修复的版本；后续更新由 App 在电视本机交接，不依赖电脑。本版本不修改固件安装开关或全局权限。
-
-初始化时更新文件的频道为空，表示暂未在 GitHub 发布安装包，不会给 App 推送虚构更新。当前旧安装包没有自动更新功能，**首次接入版需要手动安装一次**。
-
-## 发布新版本
-
-1. 在 Flutter 工程提高版本与构建号，比如 `1.1.10+5012`。保持现有包名和签名证书。
-2. 显式构建需要的版本：`tool/build_android.sh tv` 或 `tool/build_android.sh mobile`。使用通用 release APK，含 ARMv7、ARM64、x86_64；正式入口为 `lib/main.dart`。
-3. 打开本仓库 **Releases → Draft a new release**。填写新 tag（例如 `v1.1.10-tv`）及更新说明，**先上传 APK，再点 Publish release**。一个 Release 可以同时包含手机和 TV 包，但每个类型只能有一个 APK。
-4. GitHub Actions 的 `Publish app update feed` 会读取实际 APK 的包名、versionName、versionCode、大小、SHA-256，校验签名和通用架构，然后自动提交 `updates.json`。
-5. Actions 成功后 App 可读取新版本；GitHub CDN 通常可能缓存数分钟。App 每 6 小时自动检查一次，设置中可手动检查。
-
-APK 通过 Release 的附件上传，不能提交到 Git 源码目录。无需配置个人 Token 或上传签名私钥；Actions 使用仓库自带的短期 `GITHUB_TOKEN`。
-
-如果先发布后才上传 APK，或需要重新同步，打开 **Actions → Publish app update feed → Run workflow**，输入已发布的 tag。不要把“重新跑任务”当成提高构建号：修改了 APK 必须增加 versionCode。草稿和预发布版本不会进入稳定更新频道。
-
-## 频道与覆盖安装
-
-| 频道 | 包名 | 用途 |
+| 平台 | 安装页 | 固定版本页 |
 | --- | --- | --- |
-| `android-tv` | `com.kankan.kankan.tv` | 电视遥控器版本 |
-| `android-mobile` | `com.kankan.kankan` | Android 手机版本 |
-| `ios-mobile` | 暂未配置 | iOS 需要有效 Apple 签名及对应安装页 |
+| Android 手机 | [映屿 Android](https://www.pgyer.com/kankan-android-p) | [1.1.25](https://www.pgyer.com/app/build/857257175f161be202e9e76929f3756d) |
+| Android TV | [映屿 TV](https://www.pgyer.com/yingyutv) | [1.1.25](https://www.pgyer.com/app/build/f5315921ad049b129a657a2c11a6e49e) |
+| iOS | [映屿 iOS](https://www.pgyer.com/yingyu-ios-q) | [1.1.25](https://www.pgyer.com/app/build/a20fed577a3f1f19285c2b06d82629c6) |
 
-发布 TV 不会改变手机频道，反之亦然。下载地址使用用户确认可用的 `https://gh-proxy.com/` 代理并固定到具体 Release，例如 `https://gh-proxy.com/https://github.com/arvin-manager/yingyu/releases/download/v1.1.13-tv/yingyu-tv-1.1.13-universal.apk`；后续发布另一频道也不会下载到错误安装包。版本检查仍使用 GitHub API，发布脚本校验官方附件身份后生成代理下载链接。App 下载后检查 SHA-256，再由 Android 检查包名、版本及证书，最后由用户在系统安装器确认安装。不会静默安装。
+本版补齐手机端更新发布通道，加入同名影片跨片源线路聚合、当前播放地址重试和最多三条备用线路恢复，优化缓冲、暂停续播及清晰度切换。Android 为 ARMv7、ARM64、x86_64 通用 APK，保持原包名和签名；iOS 为 Ad Hoc，仅供描述文件内已登记的 5 台设备安装。
 
-`signing-certificates.json` 只保存已分发 APK 的**公开证书指纹**，不含私钥或 keystore。自动化拒绝签名不一致的包，防止发布后无法覆盖安装。若以后改用正式证书，应先安排已有安装版本的迁移，不能只修改这里的指纹。
+Android 在 App 内解析蒲公英公开页、显示下载进度、校验大小和 SHA-256，并交给系统安装器。TV 保留 TCL 内置多屏互动安装交接。iOS 的“前往安装”打开蒲公英安装页，由系统完成安装，不在 App 内调用 Android 安装流程。
 
-GitHub 域名在部分网络上可能无法访问；检查失败不会阻止 App 使用，可稍后重试或通过蒲公英手动安装。
+## 更新频道
 
-## 检查发布脚本
+[updates.json](https://api.github.com/repos/arvin-manager/yingyu/contents/updates.json?ref=main) 通过以下独立条目提供当前版本：
+
+| `pgyerChannels` 键 | 应用身份 |
+| --- | --- |
+| `android-mobile` | Android `com.kankan.kankan` |
+| `android-tv` | Android `com.kankan.kankan.tv` |
+| `ios-mobile` | iOS `com.kankan.kankan` |
+
+客户端按平台和手机/TV 类型选择条目，只有更高构建号才提示更新。首页每 6 小时自动检查一次，设置中可手动检查。未配置的通道不报告其他平台更新。
+
+旧版 `channels` 保留原 GitHub APK 条目，避免不支持蒲公英解析的客户端把 HTML 当作安装包。非常旧的版本需先从蒲公英手动覆盖安装一次；不能只改清单就让旧二进制获得解析能力。历史 [GitHub Releases](https://github.com/arvin-manager/yingyu/releases) 继续保留。
+
+## 后续发布
+
+1. 提高版本号与构建号，保留包名和现有签名。不同 APK 字节不能复用同一构建号。
+2. Flutter 工程使用 `tool/build_android.sh mobile` / `tool/build_android.sh tv`，正式入口 `lib/main.dart`，不拆分 ABI；iOS 使用相同正式入口归档并按现有个人团队 Ad Hoc 配置导出。
+3. 上传对应蒲公英应用并发布，记录具体 `/app/build/<buildKey>` 页面，不能用会随上传漂移的短链替代清单中的固定版本页。
+4. Android 发布前，使用 Flutter 工程的 `tool/pgyer_public_download_probe.dart` 从公开固定页面完整下载，确认与本地签名 APK 的大小、SHA-256 一致，再运行 `scripts/publish_pgyer.py`。脚本重新检查包名、签名及通用架构，保留旧频道，拒绝降低或替换既有构建号。
+5. iOS 导出后验证 IPA 代码签名、Bundle ID、构建号、个人团队和 Ad Hoc 描述文件设备；公开固定页面确认平台与版本后，用 IPA 的实际大小和 SHA-256 更新 `pgyerChannels.ios-mobile`。
+6. 提交清单并推送，回读 GitHub API 确认三个通道与产物一致。只提交公开元数据，不提交 APK/IPA、私钥、UDID 名单、账号 API Key 或 OSS 临时签名地址。
+
+公开页面仅解析必要字段，完成正常 token 校验和官方跳转，不执行远程 JavaScript，不绕过验证码、登录、密码或付费限制。页面变化或额外授权会停止下载并提示错误。Android 客户端保留完整性检查，兼容性由系统安装器判断；发布脚本的包名和签名校验继续保留。
+
+历史 GitHub 附件仍由 `scripts/update_feed.py` 校验后使用已确认的 `https://gh-proxy.com/` 下载代理。此规则不替代当前蒲公英分发。
+
+## 发布脚本检查
 
 ```sh
 python3 -m unittest discover -s scripts -p 'test_*.py'
 ```
 
-该仓库只存放分发配置、说明及自动化。Flutter 工程仍在本地维护。
-
-## 蒲公英应用内下载（1.1.14 起）
-
-支持公开页面解析的新客户端优先读取 `pgyerChannels`；老客户端仍读取 `channels`，不向它们提供 HTML 下载页。检查版本仍来自 GitHub API，实际 APK 由 App 自行解析蒲公英公开固定 build 页取得，不依赖账号 API Key、登录、Cookie 或 Cloudflare。首次安装 1.1.14 需要从蒲公英手动覆盖安装。
-
-后续提高 Android versionCode、将通用签名 APK 上传到蒲公英。发布前，用 Flutter 工程的 `tool/pgyer_public_download_probe.dart` 从该版本的公开 build 页完整下载，确认与本地 APK 的 SHA-256 相同，再运行 `scripts/publish_pgyer.py`。该工具重新验证本地签名、包名和架构，固定蒲公英 build 页，不将可能过期的 OSS 签名链接写入清单，保留旧频道。
-
-网页结构未被官方承诺稳定；正常 token 校验失败、额外授权或页面变化时应停止，不绕过验证码或权限。实际电视网络、安装权限与解码仍需设备测试。
+本仓库仅存放公开分发配置、说明和自动化，Flutter 源码仍在本地维护。
