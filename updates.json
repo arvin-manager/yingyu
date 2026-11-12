@@ -14,34 +14,34 @@
   },
   "pgyerChannels": {
     "android-tv": {
-      "version": "1.1.25",
-      "build": 5027,
+      "version": "1.1.26",
+      "build": 5028,
       "packageName": "com.kankan.kankan.tv",
       "size": 88724537,
-      "sha256": "18e8749e849f0d767a1cce0e9fd8e055d67b5fa04156c74dc4af45fbc92aff44",
-      "downloadUrl": "https://www.pgyer.com/app/build/f5315921ad049b129a657a2c11a6e49e",
-      "pageUrl": "https://www.pgyer.com/app/build/f5315921ad049b129a657a2c11a6e49e",
-      "notes": "映屿 TV 1.1.25（5027）\n\n- 独立更新通道，蒲公英应用内下载并显示进度。\n- 同名影片合并另一片源线路与集数。\n- 播放失败先重试当前地址、刷新线路，再尝试最多 3 条备用线路并保留进度。\n- 优化缓冲、暂停恢复、线路和清晰度切换。\n\n通用 APK：ARMv7、ARM64、x86_64，沿用原包名与签名。"
+      "sha256": "f0e5d154360c83f7b9d91298c3a7e21f65ef2047d633323fca1182f03ed050b4",
+      "downloadUrl": "https://www.pgyer.com/app/build/117c7fcd1538e60475da768c9a2e46a8",
+      "pageUrl": "https://www.pgyer.com/app/build/117c7fcd1538e60475da768c9a2e46a8",
+      "notes": "修复部分片源播完后不接下一集的问题。无法识别集号时，按片源顺序继续播放；播到最后一项即停止。片单重新排序后，也能定位到正确的一集。\n"
     },
     "android-mobile": {
-      "version": "1.1.25",
-      "build": 5027,
+      "version": "1.1.26",
+      "build": 5028,
       "packageName": "com.kankan.kankan",
       "size": 89593909,
-      "sha256": "63504c2b159b7a8e89a06eca25c39e8091ce52b8984991c12e38f8ff8ffb3cb1",
-      "downloadUrl": "https://www.pgyer.com/app/build/857257175f161be202e9e76929f3756d",
-      "pageUrl": "https://www.pgyer.com/app/build/857257175f161be202e9e76929f3756d",
-      "notes": "映屿 Android 1.1.25（5027）\n\n- 独立更新通道，蒲公英应用内下载并显示进度。\n- 同名影片合并另一片源线路与集数。\n- 播放失败先重试当前地址、刷新线路，再尝试最多 3 条备用线路并保留进度。\n- 优化缓冲、暂停恢复、线路和清晰度切换。\n\n通用 APK：ARMv7、ARM64、x86_64，沿用原包名与签名。"
+      "sha256": "91d8098bad160f518e161f36a56f7222cb73d834265b2e236ed2c1318556176d",
+      "downloadUrl": "https://www.pgyer.com/app/build/68e1f205d915e11df3afbab2b933d307",
+      "pageUrl": "https://www.pgyer.com/app/build/68e1f205d915e11df3afbab2b933d307",
+      "notes": "修复部分片源播完后不接下一集的问题。无法识别集号时，按片源顺序继续播放；播到最后一项即停止。片单重新排序后，也能定位到正确的一集。\n"
     },
     "ios-mobile": {
-      "version": "1.1.25",
-      "build": 5027,
+      "version": "1.1.26",
+      "build": 5028,
       "packageName": "com.kankan.kankan",
-      "size": 20735930,
-      "sha256": "f0ae4986a9b90e484ce8f7a3ec311cf1250f8cc3300d41e5405c556fd3755c2d",
-      "downloadUrl": "https://www.pgyer.com/app/build/a20fed577a3f1f19285c2b06d82629c6",
-      "pageUrl": "https://www.pgyer.com/app/build/a20fed577a3f1f19285c2b06d82629c6",
-      "notes": "映屿 iOS 1.1.25（5027）\n\n- 接入蒲公英独立更新通道，发现新版后可前往安装。\n- 同名影片合并另一片源线路与集数。\n- 播放失败先重试当前地址、刷新线路，再尝试最多 3 条备用线路并保留进度。\n- 优化缓冲、暂停恢复和清晰度切换。\n\nAd Hoc 测试包，仅限已登记设备安装。"
+      "size": 20740584,
+      "sha256": "27c54fc359b69109af7c84b01af303a40db0b49a18cb30404247ac3bdf22af29",
+      "pageUrl": "https://www.pgyer.com/app/build/be0bcc75a9b6a82caebaae8dc5b81c91",
+      "downloadUrl": "https://www.pgyer.com/app/build/be0bcc75a9b6a82caebaae8dc5b81c91",
+      "notes": "修复部分片源播完后不接下一集的问题。无法识别集号时，按片源顺序继续播放；播到最后一项即停止。片单重新排序后，也能定位到正确的一集。 iOS Ad Hoc：仅支持已登记设备。"
     }
   }
 }
