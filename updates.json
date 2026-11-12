@@ -14,14 +14,14 @@
   },
   "pgyerChannels": {
     "android-tv": {
-      "version": "1.1.26",
-      "build": 5028,
+      "version": "1.1.27",
+      "build": 5029,
       "packageName": "com.kankan.kankan.tv",
-      "size": 88724537,
-      "sha256": "f0e5d154360c83f7b9d91298c3a7e21f65ef2047d633323fca1182f03ed050b4",
-      "downloadUrl": "https://www.pgyer.com/app/build/117c7fcd1538e60475da768c9a2e46a8",
-      "pageUrl": "https://www.pgyer.com/app/build/117c7fcd1538e60475da768c9a2e46a8",
-      "notes": "修复部分片源播完后不接下一集的问题。无法识别集号时，按片源顺序继续播放；播到最后一项即停止。片单重新排序后，也能定位到正确的一集。\n"
+      "size": 88757421,
+      "sha256": "40b39189efa98b038adf1387ec0b241198327c9a3ef8598f6ef92c62c997c7af",
+      "downloadUrl": "https://www.pgyer.com/app/build/bf56cd571c5a32ce78ae8c2258cc9d17",
+      "pageUrl": "https://www.pgyer.com/app/build/bf56cd571c5a32ce78ae8c2258cc9d17",
+      "notes": "- 在「设置 → 扫码安装应用」用手机浏览器上传 APK，手机和电视需连接同一 Wi-Fi。上传后用遥控器确认，安装完成后自动清理临时文件。\n- 普通电视使用系统安装器。此前适配的雷鸟机型使用电视自带的「多屏互动」，仍需在电视上确认。\n"
     },
     "android-mobile": {
       "version": "1.1.26",
@@ -34,14 +34,14 @@
       "notes": "修复部分片源播完后不接下一集的问题。无法识别集号时，按片源顺序继续播放；播到最后一项即停止。片单重新排序后，也能定位到正确的一集。\n"
     },
     "ios-mobile": {
-      "version": "1.1.26",
-      "build": 5028,
+      "version": "1.1.27",
+      "build": 5029,
       "packageName": "com.kankan.kankan",
-      "size": 20740584,
-      "sha256": "27c54fc359b69109af7c84b01af303a40db0b49a18cb30404247ac3bdf22af29",
-      "pageUrl": "https://www.pgyer.com/app/build/be0bcc75a9b6a82caebaae8dc5b81c91",
-      "downloadUrl": "https://www.pgyer.com/app/build/be0bcc75a9b6a82caebaae8dc5b81c91",
-      "notes": "修复部分片源播完后不接下一集的问题。无法识别集号时，按片源顺序继续播放；播到最后一项即停止。片单重新排序后，也能定位到正确的一集。 iOS Ad Hoc：仅支持已登记设备。"
+      "size": 20740798,
+      "sha256": "5eadda2d581ab74c56ad4bff720d0f1b8895fda21d6a5b99a1c5c56ebe84d62c",
+      "pageUrl": "https://www.pgyer.com/app/build/2b5796bb87814a0045e97f47a8df4138",
+      "downloadUrl": "https://www.pgyer.com/app/build/2b5796bb87814a0045e97f47a8df4138",
+      "notes": "- 修复 iPhone Air 等 iPhone 横屏全屏时画面左右留边的问题。默认等比铺满屏幕，保留安全区域内的播放控件；想看完整画面，可在「播放设置 → 画面比例」切回「原始比例」。"
     }
   }
 }
