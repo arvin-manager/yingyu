@@ -14,34 +14,34 @@
   },
   "pgyerChannels": {
     "android-tv": {
-      "version": "1.1.27",
-      "build": 5029,
+      "version": "1.1.28",
+      "build": 5030,
       "packageName": "com.kankan.kankan.tv",
-      "size": 88757421,
-      "sha256": "40b39189efa98b038adf1387ec0b241198327c9a3ef8598f6ef92c62c997c7af",
-      "downloadUrl": "https://www.pgyer.com/app/build/bf56cd571c5a32ce78ae8c2258cc9d17",
-      "pageUrl": "https://www.pgyer.com/app/build/bf56cd571c5a32ce78ae8c2258cc9d17",
-      "notes": "- 在「设置 → 扫码安装应用」用手机浏览器上传 APK，手机和电视需连接同一 Wi-Fi。上传后用遥控器确认，安装完成后自动清理临时文件。\n- 普通电视使用系统安装器。此前适配的雷鸟机型使用电视自带的「多屏互动」，仍需在电视上确认。\n"
+      "size": 88773805,
+      "sha256": "6a085a48a13c796b72c10d116e6f4ef3259f255a2f19dd00733fae7f12d51e8d",
+      "downloadUrl": "https://www.pgyer.com/app/build/b283cd10455b3a9d0f8f6624593fcffd",
+      "pageUrl": "https://www.pgyer.com/app/build/b283cd10455b3a9d0f8f6624593fcffd",
+      "notes": "首页「继续看」、观看记录和详情页在线播放前会刷新集数与播放地址。\n片源调整集数顺序或名称后，按原集和观看进度续播。\n回到前台时先尝试恢复当前播放，确认连接失败后自动获取新地址，必要时切换线路。\n"
     },
     "android-mobile": {
-      "version": "1.1.26",
-      "build": 5028,
+      "version": "1.1.28",
+      "build": 5030,
       "packageName": "com.kankan.kankan",
-      "size": 89593909,
-      "sha256": "91d8098bad160f518e161f36a56f7222cb73d834265b2e236ed2c1318556176d",
-      "downloadUrl": "https://www.pgyer.com/app/build/68e1f205d915e11df3afbab2b933d307",
-      "pageUrl": "https://www.pgyer.com/app/build/68e1f205d915e11df3afbab2b933d307",
-      "notes": "修复部分片源播完后不接下一集的问题。无法识别集号时，按片源顺序继续播放；播到最后一项即停止。片单重新排序后，也能定位到正确的一集。\n"
+      "size": 89659561,
+      "sha256": "72ea85fd158249e9552e11aca017c1303c2625120d7284ce99cc880e56d192a6",
+      "downloadUrl": "https://www.pgyer.com/app/build/66305c7f6cd511192e3c2792b11e0161",
+      "pageUrl": "https://www.pgyer.com/app/build/66305c7f6cd511192e3c2792b11e0161",
+      "notes": "首页「继续看」、观看记录和详情页在线播放前会刷新集数与播放地址。\n片源调整集数顺序或名称后，按原集和观看进度续播。\n回到前台时先尝试恢复当前播放，确认连接失败后自动获取新地址，必要时切换线路。\n"
     },
     "ios-mobile": {
-      "version": "1.1.27",
-      "build": 5029,
+      "version": "1.1.28",
+      "build": 5030,
       "packageName": "com.kankan.kankan",
-      "size": 20740798,
-      "sha256": "5eadda2d581ab74c56ad4bff720d0f1b8895fda21d6a5b99a1c5c56ebe84d62c",
-      "pageUrl": "https://www.pgyer.com/app/build/2b5796bb87814a0045e97f47a8df4138",
-      "downloadUrl": "https://www.pgyer.com/app/build/2b5796bb87814a0045e97f47a8df4138",
-      "notes": "- 修复 iPhone Air 等 iPhone 横屏全屏时画面左右留边的问题。默认等比铺满屏幕，保留安全区域内的播放控件；想看完整画面，可在「播放设置 → 画面比例」切回「原始比例」。"
+      "size": 20671318,
+      "sha256": "6f74f3730597ea8b09e37fd22429dde8c02b63cb14dab9bc998f1bce46f44e07",
+      "downloadUrl": "https://www.pgyer.com/app/build/2851dd90e174c00adafc3326f5ece4dc",
+      "pageUrl": "https://www.pgyer.com/app/build/2851dd90e174c00adafc3326f5ece4dc",
+      "notes": "首页「继续看」、观看记录和详情页在线播放前会刷新集数与播放地址。\n片源调整集数顺序或名称后，按原集和观看进度续播。\n回到前台时先尝试恢复当前播放，确认连接失败后自动获取新地址，必要时切换线路。\niOS 版需要 iOS 15 或更高版本。"
     }
   }
 }

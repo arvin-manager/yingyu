@@ -6,11 +6,11 @@
 
 | 平台 | 安装页 | 固定版本页 |
 | --- | --- | --- |
-| Android 手机 | [映屿 Android](https://www.pgyer.com/kankan-android-p) | [1.1.26](https://www.pgyer.com/app/build/68e1f205d915e11df3afbab2b933d307) |
-| Android TV | [映屿 TV](https://www.pgyer.com/yingyutv) | [1.1.27](https://www.pgyer.com/app/build/bf56cd571c5a32ce78ae8c2258cc9d17) |
-| iOS | [映屿 iOS](https://www.pgyer.com/yingyu-ios-q) | [1.1.27](https://www.pgyer.com/app/build/2b5796bb87814a0045e97f47a8df4138) |
+| Android 手机 | [映屿 Android](https://www.pgyer.com/kankan-android-p) | [1.1.28](https://www.pgyer.com/app/build/66305c7f6cd511192e3c2792b11e0161) |
+| Android TV | [映屿 TV](https://www.pgyer.com/yingyutv) | [1.1.28](https://www.pgyer.com/app/build/b283cd10455b3a9d0f8f6624593fcffd) |
+| iOS | [映屿 iOS](https://www.pgyer.com/yingyu-ios-q) | [1.1.28](https://www.pgyer.com/app/build/2851dd90e174c00adafc3326f5ece4dc) |
 
-TV 1.1.27 新增局域网扫码上传 APK 并在电视上确认安装。iOS 1.1.27 修复 iPhone 横屏全屏左右留边。Android 手机仍为 1.1.26。Android 为 ARMv7、ARM64、x86_64 通用 APK，保持原包名和签名；iOS 为 Ad Hoc，仅供描述文件内已登记的 5 台设备安装。
+1.1.28 修复续播使用过期集数和播放地址的问题，并在回到前台后按连接状态恢复播放。Android 为 ARMv7、ARM64、x86_64 通用 APK，沿用原包名与签名。iOS 为 Ad Hoc，需要 iOS 15 或更高版本，仅供描述文件内已登记的 5 台设备安装。
 
 Android 在 App 内解析蒲公英公开页、显示下载进度、校验大小和 SHA-256，并交给系统安装器。TV 保留 TCL 内置多屏互动安装交接。iOS 的“前往安装”打开蒲公英安装页，由系统完成安装，不在 App 内调用 Android 安装流程。
 
