@@ -34,14 +34,14 @@
       "notes": "首页「继续看」、观看记录和详情页在线播放前会刷新集数与播放地址。\n片源调整集数顺序或名称后，按原集和观看进度续播。\n回到前台时先尝试恢复当前播放，确认连接失败后自动获取新地址，必要时切换线路。\n"
     },
     "ios-mobile": {
-      "version": "1.1.28",
-      "build": 5030,
+      "version": "1.1.29",
+      "build": 5031,
       "packageName": "com.kankan.kankan",
-      "size": 20671318,
-      "sha256": "6f74f3730597ea8b09e37fd22429dde8c02b63cb14dab9bc998f1bce46f44e07",
-      "downloadUrl": "https://www.pgyer.com/app/build/2851dd90e174c00adafc3326f5ece4dc",
-      "pageUrl": "https://www.pgyer.com/app/build/2851dd90e174c00adafc3326f5ece4dc",
-      "notes": "首页「继续看」、观看记录和详情页在线播放前会刷新集数与播放地址。\n片源调整集数顺序或名称后，按原集和观看进度续播。\n回到前台时先尝试恢复当前播放，确认连接失败后自动获取新地址，必要时切换线路。\niOS 版需要 iOS 15 或更高版本。"
+      "size": 20714057,
+      "sha256": "8e4a4da8f7b9ee01baa676a58dffd708a9c20e5de677e83547c3ea2a5e11f874",
+      "downloadUrl": "https://www.pgyer.com/app/build/d9feb19d4df9fd89f77bbf2112034def",
+      "pageUrl": "https://www.pgyer.com/app/build/d9feb19d4df9fd89f77bbf2112034def",
+      "notes": "- 下载页支持多选，批量暂停、继续或删除勾选的任务。提交选集后，关闭弹窗也会继续添加。\n- 已完成按影片分组，显示已下载集数和占用空间。点进影片即可筛选、播放或删除剧集。\n- 从下载页播放时，手动切集和自动下一集都使用本地文件。播放期间新完成的下一集也能接上。\niOS 版需要 iOS 15 或更高版本。"
     }
   }
 }
